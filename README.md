@@ -28,6 +28,5 @@ The installation and maintainance of further software is managed by [**Me**](htt
 
 ## TODO
 
-* add casks options
 * stepping over to Me setup
 * replace fully qualified user dir with $HOME in .bashrc

@@ -140,9 +140,9 @@ class MeLordBootstrapper
             Dotfiles.export 'HOMEBREW_PREFIX', @homebrew_home, @bashrc_fully
             Dotfiles.export 'HOMEBREW_TEMP', @homebrew_temp, @bashrc_fully
             Dotfiles.export 'HOMEBREW_CACHE', @homebrew_cache, @bashrc_fully
-            Dir.chdir(@home) do
-                File.symlink @bashrc, @bash_profile
-            end
+            hco = '--appdir=$HOME/Applications --caskroom=$HOMEBREW_PREFIX/Caskroom'
+            Dotfiles.export 'HOMEBREW_CASK_OPTS', hco, @bashrc_fully 
+            Dir.chdir(@home) { File.symlink @bashrc, @bash_profile }
         rescue Exception
             Interface.fatal 'Could not reconfigure dotiles'
             raise
